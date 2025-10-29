@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Estacionamiento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    li {
+      margin: 5px 0;
+      padding: 6px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      margin-left: 5px;
+      border: none;
+      padding: 5px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .eliminar {
+      background-color: #e74c3c;
+      color: white;
+    }
+    #btnBorrarTodo {
+      margin-top: 10px;
+      background-color: #555;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Registro de Usuarios</h1>
+
+  <input type="text" id="nombreInput" placeholder="Escribe tu nombre">
+  <button id="btnRegistrar">Registrar</button>
+  <button id="btnBorrarTodo">Borrar todo</button>
+
+  <p id="resultado"></p>
+
+  <h3>Usuarios registrados:</h3>
+  <ul id="listaUsuarios"></ul>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
