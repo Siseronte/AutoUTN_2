@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoUTN - Registro</title>
+    <link rel="icon" type="image/png" href="img/icono_pestana.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Logo AutoUTN">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="reserva.html">Reserva</a></li>
+                <li><a href="mis-autos.html">Mis Autos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="registro.html" class="btn-login">Registrarse</a>
+        </div>
+        <button class="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <main class="main-content">
+        <div class="register-container">
+            <h1>Formulario de Registro</h1>
+            <form id="register-form" class="register-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre/s</label>
+                    <input type="text" id="nombre" name="nombre" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido/s</label>
+                    <input type="text" id="apellido" name="apellido" required autocomplete="family-name">
+                </div>
+                <div class="form-group">
+                    <label for="legajo-registro">Legajo</label>
+                    <input type="text" id="legajo-registro" name="legajo" required autocomplete="on">
+                    <p class="error-text" id="legajo-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="dni">DNI</label>
+                    <input type="text" id="dni" name="dni" required autocomplete="on">
+                    <p class="error-text" id="dni-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="email-registro">Mail Institucional</label>
+                    <input type="email" id="email-registro" name="email" required autocomplete="email">
+                    <p class="error-text" id="email-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="password-registro">Contraseña</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password-registro" name="new-password" required autocomplete="new-password">
+                        <i class="fas fa-eye-slash toggle-password-icon" id="togglePassword"></i>
+                    </div>
+                    <p class="error-text" id="password-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="password-confirm">Repetir contraseña</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password-confirm" name="new-password-confirm" required autocomplete="new-password">
+                        <i class="fas fa-eye-slash toggle-password-icon" id="toggleConfirmPassword"></i>
+                    </div>
+                    <p class="error-text" id="password-confirm-error"></p>
+                </div>
+                <button type="submit" class="btn-submit">Registrarse</button>
+            </form>
+            <div id="success-message" class="success-message">
+                <h4>¡Registro completado con éxito!</h4>
+                <p>Revisa tu correo electrónico para dar de alta la cuenta.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="legal">
+            <p>&copy; 2025 AutoUTN. Todos los derechos reservados. Legales.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://frh.utn.edu.ar/" target="_blank" rel="noopener noreferrer" aria-label="Sitio Web"><i class="fas fa-globe"></i></a>
+            <a href="https://www.instagram.com/utn.frh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/utn-facultad-regional-haedo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@facultadregionalhaedo-utn3647" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/guestProtection.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/darkMode.js"></script>
+    <script src="js/registro.js"></script>
+</body>
+</html>

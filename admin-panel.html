@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador - AutoUTN</title>
+    <link rel="icon" type="image/png" href="img/icono_pestana.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/calendario.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="dashboard.html">
+                <img src="img/logo.png" alt="Logo AutoUTN">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Inicio</a></li>
+                <li><a href="reserva.html">Reserva</a></li>
+                <li><a href="mis-autos.html">Mis Autos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <!-- Se rellena dinámicamente con ui.js -->
+        </div>
+        <button class="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <main class="main-content container">
+        <h1 class="main-title">Panel de Administrador</h1>
+
+        <!-- Sección de Mensajes de Contacto -->
+        <section class="admin-section">
+            <h2><i class="fas fa-envelope"></i> Mensajes de Contacto</h2>
+
+            <!-- Contenedor para las dos listas de mensajes -->
+            <div class="contactos-split-container">
+                <!-- Columna de Mensajes Pendientes -->
+                <div class="contactos-columna">
+                    <h3><i class="fas fa-inbox"></i> Pendientes</h3>
+                    <div class="contactos-header-controls">
+                        <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-pendientes-input" placeholder="Buscar en pendientes...">
+                        </div>
+                        <button id="sort-pendientes-btn" class="btn-sort" aria-label="Orden: Más nuevo primero"><i class="fas fa-arrow-down-wide-short"></i></button>
+                    </div>
+                    <div id="loading-contactos-pendientes" class="loading-spinner" style="display: none;">Cargando...</div>
+                    <ul id="lista-contactos-pendientes" class="list-container contactos-list">
+                        <!-- Los mensajes pendientes se renderizarán aquí -->
+                    </ul>
+                </div>
+
+                <!-- Columna de Mensajes Respondidos -->
+                <div class="contactos-columna">
+                    <h3><i class="fas fa-check-double"></i> Respondidos</h3>
+                    <div class="contactos-header-controls">
+                        <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-respondidos-input" placeholder="Buscar en respondidos...">
+                        </div>
+                        <button id="sort-respondidos-btn" class="btn-sort" aria-label="Orden: Más nuevo primero"><i class="fas fa-arrow-down-wide-short"></i></button>
+                    </div>
+                    <div id="loading-contactos-respondidos" class="loading-spinner" style="display: none;">Cargando...</div>
+                    <ul id="lista-contactos-respondidos" class="list-container contactos-list">
+                        <!-- Los mensajes respondidos se renderizarán aquí -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenedor para las dos columnas: Calendario y Reservas -->
+        <div class="admin-columns-container">
+            <!-- Columna del Calendario -->
+            <section class="admin-section admin-column">
+                <h2><i class="fas fa-calendar-alt"></i> Calendario de Reservas</h2>
+                <div class="calendar-container" style="margin-top: 1rem; margin-left: auto; margin-right: auto;"> <!-- Centrado horizontalmente -->
+                    <div class="calendar-header">
+                        <button class="nav-btn prev-month">&lt;</button>
+                        <h2 class="current-month"></h2>
+                        <button class="nav-btn next-month">&gt;</button>
+                    </div>
+                    <div class="calendar-grid"></div>
+                    <p style="text-align: center; margin-top: 1rem;">Selecciona un día para ver las reservas.</p>
+                </div>
+            </section>
+
+            <!-- Columna de la Lista de Reservas -->
+            <section class="admin-section admin-column">
+                <h2><i class="fas fa-list-ul"></i> Reservas del Día: <span id="fecha-seleccionada">--/--/----</span></h2>
+                <!-- Contenedor para el filtro de usuario, inicialmente oculto -->
+                <div id="turno-filter-container" class="filter-container" style="display: none;">
+                    <div class="filter-group">
+                        <label for="filter-turno-select">Filtrar por turno:</label>
+                        <select id="filter-turno-select" class="select-filter" aria-label="Filtrar por turno"></select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-estado-select">Filtrar por estado:</label>
+                        <select id="filter-estado-select" class="select-filter" aria-label="Filtrar por estado"></select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-reservas-select">Ordenar por:</label>
+                        <select id="sort-reservas-select" class="select-filter" aria-label="Ordenar por"></select>
+                    </div>
+                    <button id="btn-descargar-pdf" class="btn-secondary"><i class="fas fa-file-pdf"></i> Descargar PDF</button>
+                </div>
+
+                <div id="loading-reservas" style="display: none;">Cargando reservas...</div>
+                <div class="list-container">
+                    <ul id="lista-reservas-dia" class="lista-items-admin">
+                        <!-- Las reservas se cargarán aquí -->
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contenedor para las dos columnas: Usuarios y Vehículos -->
+        <div class="admin-columns-container">
+            <!-- Columna de Gestión de Usuarios -->
+            <section class="admin-section admin-column">
+                <h2><i class="fas fa-users"></i> Gestión de Usuarios</h2>
+                <div class="search-container">
+                    <input type="text" id="search-user-input" placeholder="Buscar por nombre, apellido o legajo...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div id="loading-usuarios" style="display: none;">Cargando usuarios...</div>
+                <ul id="lista-usuarios" class="list-container">
+                    <!-- Los usuarios se cargarán aquí -->
+                </ul>
+            </section>
+
+            <!-- Columna de Gestión de Vehículos -->
+            <section class="admin-section admin-column">
+                <h2><i class="fas fa-car"></i> Gestión de Vehículos</h2>
+                <div class="search-container">
+                    <input type="text" id="search-vehiculo-input" placeholder="Buscar por patente, modelo, marca...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div id="loading-vehiculos" style="display: none;">Cargando vehículos...</div>
+                <ul id="lista-vehiculos-admin" class="list-container">
+                    <!-- Los vehículos se cargarán aquí -->
+                </ul>
+            </section>
+        </div>
+
+        <!-- Sección de Gestión de Capacidad (ahora al final) -->
+        <section class="admin-section" style="text-align: center;">
+            <h2><i class="fas fa-parking"></i> Gestión de Capacidad del Estacionamiento</h2>
+            <div class="capacidad-container">
+                <p>Define el número total de espacios disponibles para reservar en cada turno.</p>
+                <div class="capacidad-control">
+                    <label for="capacidad-input">Capacidad Máxima Actual: <span id="capacidad-actual-valor" class="capacidad-valor"></span></label>
+                    <span id="loading-capacidad" style="display: none;">Cargando...</span>
+                    <input type="number" id="capacidad-input" min="0" class="input-capacidad">
+                    <button id="btn-guardar-capacidad" class="btn-primary">Guardar</button>
+                </div>
+                <p id="capacidad-feedback" class="feedback-message"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Editar Usuario (inicialmente oculto) -->
+    <div id="edit-user-modal-overlay" class="modal-overlay" style="display: none;">
+        <div id="edit-user-modal" class="modal">
+            <div class="modal-header">
+                <h2>Editar Usuario</h2>
+                <button id="close-modal-btn" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <form id="edit-user-form">
+                    <input type="hidden" id="edit-user-legajo">
+                    <div class="form-group">
+                        <label for="edit-user-nombre">Nombre:</label>
+                        <input type="text" id="edit-user-nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-user-apellido">Apellido:</label>
+                        <input type="text" id="edit-user-apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-user-tokens">Tokens:</label>
+                        <input type="number" id="edit-user-tokens" min="0" max="20" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="save-user-changes-btn" class="btn-primary">Guardar Cambios</button>
+                <button id="delete-user-btn" class="btn-danger">Eliminar Usuario</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Responder Mensaje (inicialmente oculto) -->
+    <div id="reply-contact-modal-overlay" class="modal-overlay" style="display: none;">
+        <div id="reply-contact-modal" class="modal">
+            <div class="modal-header">
+                <h2>Responder Mensaje</h2>
+                <button id="close-reply-modal-btn" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-content">
+                <form id="reply-contact-form">
+                    <input type="hidden" id="reply-contact-id">
+                    <div class="form-group">
+                        <label>Para:</label>
+                        <p id="reply-contact-email" class="modal-info-text"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Tema Original:</label>
+                        <p id="reply-contact-tema" class="modal-info-text"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="reply-contact-mensaje">Tu Respuesta:</label>
+                        <textarea id="reply-contact-mensaje" rows="5" required placeholder="Escribe tu respuesta aquí..." maxlength="500"></textarea>
+                        <div id="reply-char-counter" class="char-counter">
+                            <!-- El contador se actualizará con JS -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="send-reply-btn" class="btn-primary">Enviar Respuesta</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="legal">
+            <p>&copy; 2025 AutoUTN. Todos los derechos reservados. Legales.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://frh.utn.edu.ar/" target="_blank" rel="noopener noreferrer" aria-label="Sitio Web"><i class="fas fa-globe"></i></a>
+            <a href="https://www.instagram.com/utn.frh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/utn-facultad-regional-haedo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@facultadregionalhaedo-utn3647" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/adminProtection.js"></script> <!-- Protección específica para admin -->
+
+    <!-- Librerías para generar PDF (DEBEN CARGARSE ANTES de admin-panel.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.js"></script>
+    <script src="js/darkMode.js"></script>
+    <script src="js/admin-panel.js"></script> <!-- Lógica de la página que usa las librerías de arriba -->
+
+</body>
+</html>

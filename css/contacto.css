@@ -1,0 +1,155 @@
+/* Estilos para la nueva página de contacto combinada */
+.contact-page-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+    width: 100%;
+}
+
+.map-column, .form-column {
+    flex: 1; /* Cada columna toma el 50% del espacio */
+    min-width: 300px; /* Ancho mínimo para evitar que se aplasten demasiado */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch; /* Hacemos que los hijos se estiren */
+    padding: 2rem; /* Añadimos padding interno para que el contenido no se pegue a los bordes */
+}
+
+.form-column {
+    /* Centramos el contenido de la columna del formulario */
+    align-items: center;
+}
+
+.map-column {
+    /* Aseguramos que el contenido del mapa se centre y crezca */
+    align-items: center;
+}
+
+.map-container {
+    flex-grow: 1; /* Permite que este div crezca y ocupe el espacio vertical */
+    width: 100%;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%; /* Hacemos que el mapa ocupe toda la altura de su columna */
+    border: 0;
+    border-radius: 8px;
+}
+.address-text {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.form-column .contact-form {
+    width: 100%; /* Hacemos que el formulario ocupe todo el ancho de su columna */
+    display: flex; /* Habilitamos flexbox para centrar su contenido */
+    flex-direction: column; /* Apilamos los elementos del formulario verticalmente */
+    flex-grow: 1; /* Hacemos que el formulario crezca para ocupar el espacio vertical */
+    justify-content: center; /* Centramos el contenido del formulario verticalmente */
+}
+
+/* En pantallas pequeñas, el mapa no debe ser tan alto */
+@media (max-width: 768px) {
+    .contact-page-container {
+        flex-direction: column-reverse; /* El formulario aparecerá arriba en móviles */
+    }
+    .map-container iframe { height: 400px; }
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--utn-azul-oscuro);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--utn-azul-medio);
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--utn-azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--utn-azul-medio);
+}
+
+.error-text {
+    color: #d93025;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.success-message {
+    display: none; /* Oculto por defecto */
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    background-color: #1da834; /* Fondo rojo claro */
+    color: #000000; /* Texto rojo oscuro */
+    border: 1px solid #ffffff; /* Borde rojo */
+}
+
+/* Estilos para la nueva sección "Sobre Nosotros" */
+.about-us-section {
+    padding: 3rem 2rem; /* Espaciado vertical y horizontal */
+    text-align: center; /* Centrar el texto */
+    background-color: var(--utn-gris-claro); /* Un fondo sutil */
+    width: 100%;
+}
+
+.about-us-section h2 {
+    font-size: 2rem; /* Un poco más grande */
+    margin-bottom: 1rem;
+    color: var(--utn-azul-oscuro);
+}
+.about-us-section p {
+    max-width: 800px; /* Limitar el ancho del párrafo para mejor legibilidad */
+    margin: 0 auto 1em; /* Centrar el párrafo y añadir un margen inferior */
+    line-height: 1.6;
+}

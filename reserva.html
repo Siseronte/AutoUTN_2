@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoUTN - Reserva de Lugar</title>
+    <link rel="icon" type="image/png" href="img/icono_pestana.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/calendario.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Logo AutoUTN">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="reserva.html">Reserva</a></li>
+                <li><a href="mis-autos.html">Mis Autos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="registro.html" class="btn-login">Registrarse</a>
+        </div>
+        <button class="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <main class="main-content">
+        <div class="reserva-container">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="nav-btn prev-month">&lt;</button>
+                    <h2 class="current-month">Octubre 2025</h2>
+                    <button class="nav-btn next-month">&gt;</button>
+                </div>
+                <div class="calendar-grid">
+                    <!-- Los días se generarán dinámicamente con JavaScript -->
+                </div>
+                
+                <!-- Sección para mostrar disponibilidad por turnos -->
+                <div class="disponibilidad-turnos" id="disponibilidad-turnos" style="display: none;">
+                    <h3>Disponibilidad por turno</h3>
+                    <div class="turnos-info">
+                        <div class="turno-item">
+                            <span class="turno-nombre">Mañana (08:00-13:00)</span>
+                            <span class="turno-disponibles" id="turno-1-disponibles">-</span>
+                        </div>
+                        <div class="turno-item">
+                            <span class="turno-nombre">Tarde (13:00-18:00)</span>
+                            <span class="turno-disponibles" id="turno-2-disponibles">-</span>
+                        </div>
+                        <div class="turno-item">
+                            <span class="turno-nombre">Noche (18:00-23:00)</span>
+                            <span class="turno-disponibles" id="turno-3-disponibles">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="booking-form-container" id="booking-form-container">
+                <h3>Rango horario</h3>
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="selector-vehiculo">Selecciona tu vehículo</label>
+                        <select id="selector-vehiculo" name="patente" required>
+                            <option value="">Cargando vehículos...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="rango1" name="rango-horario" value="1" data-start-time="08:00">
+                        <label for="rango1">08:00h a 13:00h</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="rango2" name="rango-horario" value="2" data-start-time="13:00">
+                        <label for="rango2">13:00h a 18:00h</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="rango3" name="rango-horario" value="3" data-start-time="18:00">
+                        <label for="rango3">18:00h a 23:00h</label>
+                    </div>
+                    <button type="submit" class="btn-reserva">Reservar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Nueva sección para mostrar las reservas del usuario -->
+        <div class="mis-reservas-container">
+            <h2>Mis Reservas</h2>
+            <ul id="lista-mis-reservas">
+                <li>Cargando tus reservas...</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="legal">
+            <p>&copy; 2025 AutoUTN. Todos los derechos reservados. Legales.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://frh.utn.edu.ar/" target="_blank" rel="noopener noreferrer" aria-label="Sitio Web"><i class="fas fa-globe"></i></a>
+            <a href="https://www.instagram.com/utn.frh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/utn-facultad-regional-haedo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@facultadregionalhaedo-utn3647" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/unauthorizedAccess.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/darkMode.js"></script>
+    <script src="js/calendario.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AutoUTN</title>
+    <link rel="icon" type="image/png" href="img/icono_pestana.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="dashboard.html">
+                <img src="img/logo.png" alt="Logo AutoUTN">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Inicio</a></li>
+                <li><a href="reserva.html">Reserva</a></li>
+                <li><a href="mis-autos.html">Mis Autos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <span class="user-name">Cargando...</span>
+            <button class="btn-login logout-btn">Cerrar Sesión</button>
+        </div>
+        <button class="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <main class="main-content">
+        <section class="content-column">
+            <div style="text-align: center; padding: 2rem;">
+                <h1 style="color: var(--utn-azul-oscuro);">¡Bienvenido al Dashboard!</h1>
+                <div class="user-info-box">
+                    <h3>Información del Usuario</h3>
+                    <p><strong>Nombre:</strong> <span class="user-name">Cargando...</span></p>
+                    <p><strong>Legajo:</strong> <span class="user-legajo">Cargando...</span></p>
+                    <p><strong>Email:</strong> <span class="user-email">Cargando...</span></p>
+                    <p><strong>Tokens disponibles:</strong> <span class="user-tokens">Cargando...</span></p>
+                </div>
+                <div class="user-dashboard-actions">
+                    <!-- Los botones de cambiar contraseña y eliminar cuenta se insertarán aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="legal">
+            <p>&copy; 2025 AutoUTN. Todos los derechos reservados. Legales.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://frh.utn.edu.ar/" target="_blank" rel="noopener noreferrer" aria-label="Sitio Web"><i class="fas fa-globe"></i></a>
+            <a href="https://www.instagram.com/utn.frh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/utn-facultad-regional-haedo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@facultadregionalhaedo-utn3647" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/pageProtection.js"></script>
+    <script src="js/darkMode.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

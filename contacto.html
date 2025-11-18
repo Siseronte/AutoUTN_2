@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoUTN - Contacto</title>
+    <link rel="icon" type="image/png" href="img/icono_pestana.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Logo AutoUTN">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="reserva.html">Reserva</a></li>
+                <li><a href="mis-autos.html">Mis Autos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="registro.html" class="btn-login">Registrarse</a>
+        </div>
+        <button class="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <main class="main-content">
+        <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div class="contact-page-container">
+                <!-- Columna del Mapa -->
+                <div class="map-column">
+                    <h2>Nuestra Ubicación</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.5647439257086!2d-58.60793981076373!3d-34.64043798965808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb881cd11a159%3A0x3c6312efcfe9783f!2sLos%20Andes%202054%2C%20B1706BSH%20Haedo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1760655083756!5m2!1ses-419!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación de AutoUTN en Haedo"></iframe>
+                    </div>
+                    <p class="address-text">Los Andes 2054, Haedo, Provincia de Buenos Aires</p>
+                </div>
+    
+                <!-- Columna del Formulario -->
+                <div class="form-column">
+                    <form id="contact-form" class="contact-form">
+                        <h2>Envíanos un mensaje</h2>
+                        <div class="form-group">
+                            <label for="email-contacto">Tu Email</label>
+                            <input type="email" id="email-contacto" name="email" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="tema-contacto">Tema</label>
+                            <select id="tema-contacto" name="tema" required>
+                                <option value="" disabled selected>-- Selecciona un tema --</option>
+                                <option value="Consulta general">Consulta general</option>
+                                <option value="Problemas con mi cuenta">Problemas con mi cuenta</option>
+                                <option value="Sugerencias">Sugerencias</option>
+                                <option value="Reportar un error">Reportar un error</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje-contacto">Mensaje</label>
+                            <textarea id="mensaje-contacto" name="mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar</button>
+                    </form>
+                    <div id="success-message" class="success-message">
+                        ¡Mensaje enviado correctamente!
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Nueva sección "Sobre Nosotros" -->
+            <section class="about-us-section">
+                <h2>Sobre Nosotros</h2>
+                <p>
+                    Somos un grupo de estudiantes de la Tecnicatura Universitaria en Programación de la UTN. Como alumnos, hemos vivido en carne propia la frustración y el estrés que genera la falta de estacionamiento en la facultad. Analizando esta problemática recurrente, decidimos aplicar nuestros conocimientos para crear una solución justa, eficiente y equitativa que beneficie a toda la comunidad estudiantil. Así nació AutoUTN.
+                </p>
+                <p>
+                    <strong><em>Daniel Perez Albiero, Nicolás Daniel Rotiroti, Tomás González, Ian Virgili Palatnik.</em></strong>
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="legal">
+            <p>&copy; 2025 AutoUTN. Todos los derechos reservados. Legales.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://frh.utn.edu.ar/" target="_blank" rel="noopener noreferrer" aria-label="Sitio Web"><i class="fas fa-globe"></i></a>
+            <a href="https://www.instagram.com/utn.frh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/utn-facultad-regional-haedo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@facultadregionalhaedo-utn3647" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/darkMode.js"></script>
+    <script src="js/contacto.js"></script>
+</body>
+</html>

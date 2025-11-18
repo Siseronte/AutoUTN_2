@@ -1,0 +1,253 @@
+/* Contenedor principal de la reserva */
+.reserva-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Estilos para el contenedor del calendario */
+.calendar-container {
+    width: 100%;
+    max-width: 600px; /* Ancho reducido */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Contenedor del formulario de reserva */
+.booking-form-container {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    visibility: hidden;
+}
+
+.booking-form-container.visible {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.booking-form-container h3 {
+    color: var(--utn-azul-oscuro);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.booking-form-container .form-group {
+    margin-bottom: 1rem;
+}
+
+.booking-form-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.booking-form-container .form-group.disabled label {
+    color: #ccc;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.booking-form-container .btn-reserva {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--utn-verde);
+    color: var(--blanco);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form-container .btn-reserva:hover {
+    background-color: #45a049; /* Un verde un poco más oscuro */
+}
+
+
+/* Cabecera del calendario (mes y navegación) */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.current-month {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--utn-azul-oscuro);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--utn-azul-medio);
+    padding: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: var(--utn-azul-oscuro);
+}
+
+/* Grilla del calendario */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+/* Celdas de la grilla (días y nombres de días) */
+.day-name, .day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.day-name {
+    font-weight: 700;
+    color: var(--utn-azul-medio);
+    border-bottom: 2px solid var(--utn-gris-claro);
+}
+
+.day {
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 40px;
+    width: 40px;
+    margin: auto;
+}
+
+.day:hover {
+    background-color: #e4f0fe;
+}
+
+/* Estilos para días de meses anterior/siguiente */
+.prev-month-day, .next-month-day {
+    color: #aaa;
+}
+
+/* Estilo para el día actual */
+.day.today {
+    background-color: var(--utn-azul-oscuro);
+    color: var(--blanco);
+    font-weight: 700;
+}
+
+/* Estilo para el día seleccionado */
+.day.selected {
+    background-color: var(--utn-verde);
+    color: var(--blanco);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Estilo para días deshabilitados (pasados) */
+.day.disabled-day {
+    color: #ccc;
+    cursor: not-allowed;
+    background-color: #f9f9f9; /* Fondo ligeramente gris para distinguirlo */
+    text-decoration: line-through;
+}
+
+.day.disabled-day:hover {
+    background-color: transparent;
+}
+
+/* Estilo para botones de navegación deshabilitados */
+.nav-button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.nav-button:disabled:hover {
+    color: #ccc;
+}
+
+.nav-btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.nav-btn:disabled:hover {
+    color: #ccc;
+}
+/* Estilos para la sección de disponibilidad por turnos */
+.disponibilidad-turnos {
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--utn-azul-medio);
+}
+
+.disponibilidad-turnos h3 {
+    color: var(--utn-azul-oscuro);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.turnos-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.turno-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+.turno-nombre {
+    font-weight: 500;
+    color: var(--utn-azul-oscuro);
+}
+
+.turno-disponibles {
+    font-weight: 600;
+    color: var(--utn-verde);
+    font-size: 0.9rem;
+}
+/* Modo oscuro para la sección de disponibilidad por turnos */
+body.dark-mode .disponibilidad-turnos {
+    background-color: #1c222b;
+    border-left-color: #003366;
+}
+
+body.dark-mode .disponibilidad-turnos h3 {
+    color: #f3f7ff;
+}
+
+body.dark-mode .turno-item {
+    background-color: #272939;
+    border-color: #333;
+}
+
+body.dark-mode .turno-nombre {
+    color: #f3f7ff;
+}
+
+body.dark-mode .turno-disponibles {
+    color: #68d391;
+}

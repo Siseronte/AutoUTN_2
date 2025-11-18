@@ -1,0 +1,678 @@
+/* css/dark-mode.css */
+
+/* 
+  Estos son estilos base para el modo oscuro. 
+  Puedes personalizarlos y expandirlos como quieras.
+*/
+
+body.dark-mode {
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-primary: #bb86fc;
+    --color-secondary: #03dac6;
+    --color-text-primary: #e1e1e1;
+    --color-text-secondary: #b3b3b3;
+    --color-border: #333;
+    --color-error: #cf6679;
+    --color-success: #66bb6a;
+}
+
+/* Estilos generales */
+body.dark-mode {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+/* Fondo específico para la página de inicio (index.html) */
+body.dark-mode.home-page {
+    background-color: #0d1117;
+}
+
+/* Fondo específico para la página de reserva (reserva.html) */
+body.dark-mode.reserva-page {
+    background-color: #0d1117 !important;
+}
+
+/* Header y Footer */
+body.dark-mode .header,
+body.dark-mode .footer {
+    background-color: var(--color-surface);
+    border-bottom-color: var(--color-border);
+    border-top-color: var(--color-border);
+}
+
+body.dark-mode .nav-menu a,
+body.dark-mode .logo a {
+    color: var(--color-text-primary);
+}
+
+/* Logo más claro en modo oscuro */
+body.dark-mode .logo img {
+    filter: brightness(1.3);
+}
+
+/* Iconos del footer */
+body.dark-mode .social-icons a {
+    color: #0055a4; /* Un azul más visible para el modo oscuro */
+}
+
+body.dark-mode .social-icons a:hover {
+    color: #3399ff; /* Un azul más claro para el efecto hover */
+}
+
+
+/* Formularios y Botones */
+body.dark-mode .form-container,
+body.dark-mode .contact-form,
+body.dark-mode .card {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo específico para el fondo del formulario de login en index.html */
+body.dark-mode .login-box {
+    background-color: rgba(21, 27, 35, 0.95); /* Fondo oscuro ligeramente transparente */
+}
+
+/* Color para el título "Iniciar Sesión" en el formulario de login */
+body.dark-mode .login-box h3 {
+    color: #f3f7ff;
+}
+
+/* Aseguramos que las etiquetas de los formularios sean legibles */
+body.dark-mode .form-group label {
+    color: var(--color-text-secondary);
+}
+
+body.dark-mode input,
+body.dark-mode .form-group textarea,
+body.dark-mode select {
+    background-color: #2c2c2c;
+    color: var(--color-text-primary);
+    border-color: #444;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--color-primary);
+}
+
+body.dark-mode .btn-login,
+body.dark-mode .btn-submit,
+body.dark-mode .btn-reserva {
+    background-color: var(--color-primary);
+    color: #000;
+}
+
+body.dark-mode .btn-login:hover {
+    background-color: #a050f0;
+}
+
+/* Estilo específico para el fondo del calendario en modo oscuro */
+body.dark-mode .calendar-container {
+    background-color: #151b23;
+}
+
+/* Días no seleccionables en el calendario (modo oscuro) */
+body.dark-mode .day.disabled-day,
+body.dark-mode .prev-month-day,
+body.dark-mode .next-month-day {
+    color: #4a4a4a; /* Un gris más oscuro para menor énfasis */
+    text-decoration: none; /* Quitamos el tachado que no se ve bien en modo oscuro */
+}
+
+/* Título del mes en el calendario (modo oscuro) */
+body.dark-mode .current-month {
+    color: #f3f7ff;
+}
+
+/* Estilos para el formulario de reserva (Rango Horario) en modo oscuro */
+body.dark-mode .booking-form-container {
+    background-color: #151b23;
+}
+
+body.dark-mode .booking-form-container h3 {
+    color: #f3f7ff;
+}
+
+/* Estilos para los horarios deshabilitados en modo oscuro */
+body.dark-mode .booking-form-container .form-group.disabled {
+    color: #555;
+    text-decoration: line-through;
+}
+
+/* Estilos para la sección "Mis Reservas" en modo oscuro */
+body.dark-mode .mis-reservas-container {
+    background-color: #151b23;
+}
+
+body.dark-mode .mis-reservas-container h2 {
+    color: #f3f7ff;
+    border-bottom-color: var(--color-border); /* Ajustamos el borde para el modo oscuro */
+}
+
+/* Estilo para el botón de liberar turno en modo oscuro */
+body.dark-mode .btn-liberar {
+    background-color: var(--color-error);
+}
+
+body.dark-mode .btn-liberar:hover {
+    background-color: #d87c8a;
+}
+
+/* Fondo específico para la página Mis Autos (mis-autos.html) */
+body.dark-mode.mis-autos-page {
+    background-color: #0d1117;
+}
+
+/* Estilos para las columnas en la página Mis Autos */
+body.dark-mode .column {
+    background-color: #151b23;
+    border-color: var(--color-border);
+}
+
+body.dark-mode .column h2 {
+    color: #f3f7ff;
+    border-bottom-color: var(--color-border);
+}
+
+body.dark-mode .item-vehiculo {
+    border-bottom-color: var(--color-border);
+}
+
+/* Fondo específico para la página de Registro (registro.html) */
+body.dark-mode.registro-page {
+    background-color: #0d1117;
+}
+
+/* Estilo para el contenedor de registro */
+body.dark-mode .register-container {
+    background-color: #151b23;
+}
+
+/* Título en la página de registro */
+body.dark-mode .register-container h1 {
+    color: #f3f7ff;
+}
+
+/* Fondo específico para la página Contacto (contacto.html) */
+body.dark-mode.contacto-page {
+    background-color: #0d1117;
+}
+
+/* Estilos para los contenedores principales en la página de contacto */
+body.dark-mode .map-column,
+body.dark-mode .form-column,
+body.dark-mode .about-us-section {
+    background-color: #151b23;
+}
+
+/* Títulos en la página de contacto */
+body.dark-mode .map-column h2,
+body.dark-mode .form-column h2,
+body.dark-mode .about-us-section h2 {
+    color: #f3f7ff;
+}
+
+/* Texto de la dirección debajo del mapa */
+body.dark-mode .address-text {
+    color: var(--color-text-secondary);
+}
+
+/* Fondo específico para la página Dashboard (dashboard.html) */
+body.dark-mode.dashboard-page {
+    background-color: #0d1117;
+}
+
+/* Título principal del dashboard */
+body.dark-mode .dashboard-title {
+    color: #f3f7ff;
+}
+
+/* Estilos para la caja de información del usuario en el dashboard */
+body.dark-mode .user-info-box {
+    background-color: #151b23; /* Mismo fondo que otras tarjetas */
+    color: var(--color-text-primary); /* Asegura que el texto sea claro */
+}
+
+/* Título dentro de la caja de información del usuario */
+body.dark-mode .user-info-box h3 {
+    color: #f3f7ff; /* Mismo color que otros títulos */
+}
+
+/* Estilos para la tarjeta de información del usuario en el dashboard */
+body.dark-mode .user-info-card {
+    background-color: #151b23;
+}
+
+body.dark-mode .user-info-card h3 {
+    color: #f3f7ff;
+}
+
+/* Texto dentro de la tarjeta de información */
+body.dark-mode .user-info-card p {
+    color: var(--color-text-primary);
+}
+
+/* Estilos para el menú hamburguesa en modo oscuro */
+@media (max-width: 768px) {
+    body.dark-mode .nav {
+        background-color: var(--color-surface); /* Mismo color que el header */
+    }
+
+    body.dark-mode .nav.active {
+        border-bottom-color: var(--color-border); /* Borde consistente con el tema oscuro */
+    }
+}
+
+/* --- Estilos para la tarjeta de bienvenida en modo oscuro --- */
+body.dark-mode .login-box .welcome-title {
+    color: #f3f7ff;
+}
+body.dark-mode .user-info-card-index p {
+    color: var(--color-text-primary);
+}
+
+/* --- Estilos para el Panel de Administrador (admin-panel.html) --- */
+
+/* Fondo específico para la página del panel de admin */
+body.dark-mode.admin-panel-page {
+    background-color: #0d1117;
+}
+
+/* Títulos principales y de sección */
+body.dark-mode .main-title,
+body.dark-mode .admin-section h2 {
+    color: #f3f7ff;
+}
+
+/* Contenedor de la lista de reservas del día */
+body.dark-mode .daily-reservas-container {
+    background-color: #151b23; /* Mismo fondo que otras tarjetas */
+    border-color: var(--color-border);
+}
+
+/* Contenedor de la lista de reservas del día */
+body.dark-mode .daily-reservas-container h3 {
+    color: #f3f7ff;
+}
+
+/* Contenedor de búsqueda de usuario */
+body.dark-mode .search-container input {
+    background-color: #2a313a; /* Un tono ligeramente más claro que el fondo de la lista */
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+}
+
+body.dark-mode .search-container input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.15); /* Sombra a juego con el color primario */
+}
+
+body.dark-mode .search-container i {
+    color: #6c757d; /* Un gris más suave para el ícono */
+}
+
+/* Contenedor genérico para las listas con scroll */
+body.dark-mode .list-container {
+    background-color: #151b23;
+    border-color: var(--color-border);
+}
+
+/* Estilos para los items de la lista de usuarios */
+body.dark-mode .usuario-item-admin {
+    background-color: #1c222b;
+    border-color: var(--color-border);
+}
+
+body.dark-mode .usuario-item-admin:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .usuario-nombre span:first-of-type,
+body.dark-mode .usuario-nombre i,
+body.dark-mode .usuario-contacto i,
+body.dark-mode .usuario-tokens {
+    color: var(--color-text-primary);
+}
+
+body.dark-mode .usuario-legajo {
+    color: var(--color-text-secondary);
+}
+
+/* Estilos para los items de la lista de reservas */
+body.dark-mode .reserva-item-admin {
+    background-color: #1c222b;
+    border-color: var(--color-border);
+}
+
+body.dark-mode .reserva-item-admin:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .reserva-usuario span:first-of-type,
+body.dark-mode .reserva-usuario i,
+body.dark-mode .reserva-vehiculo i,
+body.dark-mode .reserva-turno {
+    color: var(--color-text-primary);
+}
+
+body.dark-mode .reserva-legajo {
+    color: var(--color-text-secondary);
+}
+
+/* Estilos para los items de la lista de mensajes de contacto */
+body.dark-mode .contacto-item-admin {
+    background-color: #1c222b;
+    border-color: var(--color-border);
+}
+
+body.dark-mode .contacto-item-admin:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .contacto-remitente,
+body.dark-mode .contacto-remitente i {
+    color: var(--color-text-primary); /* El ícono hereda el color */
+}
+
+body.dark-mode .contacto-fecha {
+    color: var(--color-text-secondary);
+}
+
+body.dark-mode .contacto-tema i {
+    color: #888;
+}
+
+body.dark-mode .contacto-tema {
+    color: var(--color-text-secondary);
+}
+
+body.dark-mode .contacto-mensaje {
+    color: var(--color-text-primary);
+    border-left-color: var(--color-border);
+}
+
+body.dark-mode .contacto-actions {
+    border-top-color: var(--color-border);
+}
+
+body.dark-mode .btn-toggle-mensaje,
+.body.dark-mode .btn-ver-respuesta,
+body.dark-mode .btn-responder-contacto {
+    color: var(--color-text-secondary);
+    border-color: #444;
+}
+
+body.dark-mode .btn-toggle-mensaje:hover,
+.body.dark-mode .btn-ver-respuesta:hover,
+body.dark-mode .btn-responder-contacto:hover {
+    background-color: #2a313a;
+    color: var(--color-text-primary);
+}
+
+/* Estilos para las columnas de mensajes en modo oscuro */
+body.dark-mode .contactos-columna h3 {
+    color: #f3f7ff;
+    border-bottom-color: var(--color-border);
+}
+
+/* Contenedor de respuesta en modo oscuro */
+body.dark-mode .respuesta-container {
+    background-color: #2a313a; /* Un tono que destaque sutilmente */
+}
+
+body.dark-mode .respuesta-meta {
+    color: var(--color-text-secondary);
+}
+
+
+/* Mensaje de lista vacía en modo oscuro */
+body.dark-mode .empty-list-message {
+    color: var(--color-text-secondary);
+}
+
+/* Estilos para los items de la lista de vehículos en modo oscuro */
+body.dark-mode .vehiculo-item-admin {
+    background-color: #1c222b;
+    border-color: var(--color-border);
+}
+
+body.dark-mode .vehiculo-item-admin:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .vehiculo-info i,
+body.dark-mode .vehiculo-propietario i {
+    color: var(--color-text-secondary);
+}
+
+body.dark-mode .vehiculo-patente {
+    background-color: #2a313a;
+    border-color: #444;
+    color: var(--color-text-primary);
+}
+
+body.dark-mode .vehiculo-propietario-nombre {
+    color: var(--color-text-primary);
+}
+
+/* Estilos para los items de la lista de usuarios */
+body.dark-mode .usuario-item-admin {
+    background-color: #1c222b;
+    border-color: var(--color-border);
+}
+
+body.dark-mode .usuario-item-admin:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .usuario-nombre span:first-of-type,
+body.dark-mode .usuario-nombre i,
+body.dark-mode .usuario-contacto i,
+body.dark-mode .usuario-tokens {
+    color: var(--color-text-primary);
+}
+
+/* Estilos para el botón de ordenar en modo oscuro */
+body.dark-mode .btn-sort {
+    background-color: transparent;
+    border-color: #444;
+    color: #999;
+}
+
+body.dark-mode .btn-sort:hover {
+    background-color: #2a313a;
+    border-color: #666;
+    color: var(--color-text-primary);
+}
+
+/* Estilos para el texto informativo en el modal de respuesta */
+body.dark-mode .modal-content .modal-info-text {
+    background-color: #2c2c2c;
+    color: var(--color-text-secondary);
+}
+
+/* Estilos para el contador de caracteres en modo oscuro */
+body.dark-mode .char-counter {
+    color: #777;
+}
+body.dark-mode .char-counter.warning { color: #f39c12; } /* Naranja más brillante */
+body.dark-mode .char-counter.error { color: #e74c3c; } /* Rojo más brillante */
+
+/* Estilos para el Modal de Edición de Usuario */
+body.dark-mode .modal {
+    background-color: #1e1e1e; /* Usamos el color de superficie */
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    border-color: var(--color-border);
+}
+
+body.dark-mode .modal-header h2 {
+    color: #f3f7ff;
+}
+
+/* Botón finalizar reserva en modo oscuro */
+body.dark-mode .btn-finalizar-admin {
+    background-image: linear-gradient(to right, #30c552 0%, #28a745 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .btn-finalizar-admin:hover {
+    box-shadow: 0 4px 8px rgba(48, 197, 82, 0.3);
+}
+
+/* Estilo para el estado 'ausente' en modo oscuro */
+body.dark-mode .estado-ausente {
+    background-color: #dc3545; /* Mismo rojo que el estado 'cancelada' */
+    color: #ffffff;            /* Texto blanco para máximo contraste */
+}
+
+body.dark-mode .reserva-estado.estado-ausente span {
+    background-color: #dc3545; /* Mismo rojo que el estado 'cancelada' */
+    color: #ffffff;            /* Texto blanco */
+}
+
+/* Estilo para la información (fecha, turno, patente) de una reserva ausente */
+body.dark-mode .reserva-item.estado-ausente .reserva-info span {
+    background-color: #dc3545; /* Mismo fondo rojo oscuro que el badge */
+    color: #f5c2c2;            /* Mismo texto rosa pálido para consistencia */
+}
+/* --- Estilos para el botón de cambio de tema (Sol/Luna) --- */
+
+/* Contenedor de acciones del usuario para alinear los botones */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Estilo base del botón de tema */
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--utn-azul-oscuro, #003366); /* Borde a juego con el botón de logout */
+    border-radius: 50%;
+    width: 40px;  /* Aumentado de 36px */
+    height: 40px; /* Aumentado de 36px */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Oculta los iconos cuando están fuera del botón */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Estilo base para los iconos dentro del botón */
+.theme-toggle-btn .fa-sun,
+.theme-toggle-btn .fa-moon {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 1.1rem; /* Aumentado de 1rem para que coincida con el nuevo tamaño */
+    /* La transición se aplica al transform y al opacity */
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+/* --- ESTADO INICIAL (MODO CLARO) --- */
+
+/* El sol está visible y centrado */
+.theme-toggle-btn .fa-sun {
+    color: #f39c12;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+/* La luna está oculta y posicionada abajo, lista para entrar */
+.theme-toggle-btn .fa-moon {
+    color: #f1c40f;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+}
+
+/* --- ESTADO FINAL (MODO OSCURO) --- */
+
+/* Cuando el body tiene .dark-mode, el sol se va hacia arriba y se oculta */
+body.dark-mode .theme-toggle-btn .fa-sun {
+    transform: translate(-50%, -200%);
+    opacity: 0;
+}
+
+/* Cuando el body tiene .dark-mode, la luna entra desde abajo y se centra */
+body.dark-mode .theme-toggle-btn .fa-moon {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+body.dark-mode .theme-toggle-btn {
+    /* Mantenemos el borde azul también en modo oscuro para consistencia */
+    border-color: var(--utn-azul-oscuro, #003366);
+}
+
+/* ==========================================================================
+   Estilos para Scrollbars Personalizadas (Modo Oscuro)
+   ========================================================================== */
+
+/* Para navegadores WebKit (Chrome, Safari, Edge, etc.) */
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #1c222b; /* Un color de fondo que coincida con las tarjetas */
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #4a5568; /* Un gris oscuro para el pulgar */
+    border-radius: 10px;
+    border: 2px solid #1c222b; /* Espacio a juego con el fondo del track */
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #5a677c; /* Un poco más claro al pasar el mouse */
+}
+
+/* ==========================================================================
+   Estilos para la Sección de Características (Modo Oscuro)
+   ========================================================================== */
+
+body.dark-mode .features-section {
+    background-color: #0d1117; /* Mismo fondo oscuro que otras secciones */
+}
+
+body.dark-mode .features-section h2 {
+    color: #f3f7ff; /* Título claro */
+}
+
+body.dark-mode .feature-card {
+    background-color: #151b23; /* Fondo de tarjeta oscuro */
+}
+
+body.dark-mode .feature-card .fas {
+    color: var(--color-secondary); /* Iconos con color de acento del modo oscuro */
+}
+
+/* Ajuste para el fondo del main-content en modo oscuro */
+body.dark-mode .main-content::before {
+    background-color: rgba(5, 10, 17, 0.85); /* Un poco más oscuro para mantener contraste */
+}
+
+/* ==========================================================================
+   Estilos para el Mensaje de Error de Acceso No Autorizado (Modo Oscuro)
+   ========================================================================== */
+
+body.dark-mode .error-access-container {
+    background-color: #0d1117;
+}
+
+body.dark-mode .error-access-content {
+    background-color: #151b23;
+    color: var(--color-text-primary);
+}
+
+body.dark-mode .error-access-content h2 {
+    color: #f3f7ff;
+}
+
+body.dark-mode .error-access-content p {
+    color: var(--color-text-secondary);
+}

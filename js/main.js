@@ -1,83 +1,82 @@
-import { validarTexto } from "../js/modules/validaciones.js";
+document.addEventListener('DOMContentLoaded', () => {
+
+    const validateNumericInput = (input, maxLength) => {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > maxLength) {
+            value = value.slice(0, maxLength);
+        }
+        input.value = value;
+    };
 
 
-const input = document.getElementById("nombreInput");
-const btnRegistrar = document.getElementById("btnRegistrar");
-const btnBorrarTodo = document.getElementById("btnBorrarTodo");
-const resultado = document.getElementById("resultado");
-const listaUsuarios = document.getElementById("listaUsuarios");
-
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const staticLoginForm = document.getElementById('static-login-form');
+    const legajoStaticInput = document.getElementById('legajo-static');
 
 
-mostrarUsuarios();
-
-btnRegistrar.addEventListener("click", () => {
-  const nombre = input.value.trim();
-
-  if (!validarTexto(nombre)) {
-    resultado.textContent = "Por favor, ingresa un nombre válido.";
-    resultado.style.color = "red";
-    return;
-  }
+    if (legajoStaticInput) {
+        legajoStaticInput.addEventListener('input', () => validateNumericInput(legajoStaticInput, 5));
+    }
 
 
-  const usuario = {
-    nombre: nombre,
-    fecha: new Date().toLocaleString(),
-  };
+    if (staticLoginForm) {
+        staticLoginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-  usuarios.push(usuario);
-  guardarUsuarios();
+            const legajo = legajoStaticInput.value;
+            const password = document.getElementById('password-static').value;
 
-  resultado.textContent = `Usuario "${nombre}" registrado correctamente`;
-  resultado.style.color = "green";
-  input.value = "";
 
-  mostrarUsuarios();
+            if (legajo.length !== 5) {
+                showMessage('El legajo debe tener exactamente 5 números.', 'error');
+                return;
+            }
+
+            if (!password) {
+                showMessage('La contraseña es obligatoria.', 'error');
+                return;
+            }
+
+
+            showMessage('Iniciando sesión...', 'info');
+            
+
+            const result = await authManager.login(legajo, password);
+            
+            if (result.success) {
+                showMessage('¡Login exitoso! Redirigiendo...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+            } else {
+                showMessage(result.message, 'error');
+            }
+        });
+    }
+
+
+    function showMessage(message, type) {
+
+        const existingMessage = document.querySelector('.message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+
+
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message message-${type}`;
+        messageDiv.textContent = message;
+        
+
+        const form = document.getElementById('static-login-form');
+        if (form) {
+            form.parentNode.insertBefore(messageDiv, form);
+            
+
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 5000);
+        }
+    }
 });
-
-btnBorrarTodo.addEventListener("click", () => {
-  if (confirm("¿Estás seguro de borrar todos los usuarios?")) {
-    usuarios = [];
-    guardarUsuarios();
-    mostrarUsuarios();
-    resultado.textContent = "Todos los registros fueron eliminados";
-    resultado.style.color = "#555";
-  }
-});
-
-function guardarUsuarios() {
-  localStorage.setItem("usuarios", JSON.stringify(usuarios));
-}
-
-function mostrarUsuarios() {
-  listaUsuarios.innerHTML = "";
-
-  usuarios.forEach((usuario, index) => {
-    const li = document.createElement("li");
-
-    const texto = document.createElement("span");
-    texto.textContent = `${usuario.nombre} (Registrado: ${usuario.fecha})`;
-
-    const btnEliminar = document.createElement("button");
-    btnEliminar.textContent = "Eliminar";
-    btnEliminar.classList.add("eliminar");
-    btnEliminar.addEventListener("click", () => eliminarUsuario(index));
-
-    li.appendChild(texto);
-    li.appendChild(btnEliminar);
-    listaUsuarios.appendChild(li);
-  });
-}
-
-function eliminarUsuario(indice) {
-  const nombre = usuarios[indice].nombre;
-  if (confirm(`¿Eliminar a "${nombre}"?`)) {
-    usuarios.splice(indice, 1);
-    guardarUsuarios();
-    mostrarUsuarios();
-    resultado.textContent = `Usuario "${nombre}" eliminado.`;
-    resultado.style.color = "#e74c3c";
-  }
-}
