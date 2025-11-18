@@ -20,7 +20,7 @@
    npm install
    ```
 
-4. Tener un archivo `.env` que cumpla las condiciones necesarias que se especifican en el archivo ejemplo
+4. Tener un archivo `.env` en la carpeta Backend que cumpla las condiciones necesarias que se especifican en el archivo ejemplo (ubicado en esa misma carpeta)
 
 5. Estar ejecutando Apache y MySQL desde el panel de control del XAMPP
 
